@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link rel="manifest" href="manifest.json">
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--font-awesome css used for get icons to the form validation message -->
+  <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.css">
+
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- includes angular validation js files to the index-->
+  <script src="lib/angular-validation/dist/angular-validation.js"></script>  
+  <script src="lib/angular-validation/dist/angular-validation-rule.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <!-- form controller js-->
+  <script src="js/formcontroller.js"></script>
+</head>
+
+<body ng-app="app">
+
+  <ion-pane ng-controller="FormCtrl">
+    <ion-header-bar class="bar bar-balanced">
+      <h1 class="title">Icons for form validation</h1>
+    </ion-header-bar>
+   <ion-content>
+     <!--Calls the submit form method in the form controller -->
+      <form ng-submit="submitform(user)" name="user">
+        <div class="list list-inset">
+            <label><b>Name</b></label>
+            <label class="item item-input">
+              <!--validator tag used to call validation types from the angular-validation-->
+              <input type="text" placeholder="Name" ng-model="user.name"  validator="mod_required"> 
+            </label>
+            </br>
+            <label><b>Email</b></label>
+            <label class="item item-input">
+              <input type="text" placeholder="Email" ng-model="user.email" validator="mod_email"> 
+            </label>
+            </br>
+            <label><b>City</b></label>
+            <label class="item item-input">
+              <input type="text" placeholder="City" ng-model="user.city" validator ="mod_required">
+            </label>
+            </br>
+            <label><b>Password</b></label>
+            <label class="item item-input">
+              <input type="text" placeholder="Password" ng-model="user.pasword">
+            </label>
+
+            <div class="text-center" style="margin-top:30px">
+              <button type="submit" class="button button-balanced" style="width:100px">Next</button>
+            </div>      
+          </div>
+        </form>
+      </ion-content>
+    </ion-pane>
+</body>
+</html>
